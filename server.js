@@ -16,8 +16,8 @@ var PORT = process.env.PORT || 3000;
 
 /* Routes */
 var home = require('./routes/home.js');
-// var saved = require('./routes/saved.js');
-// var scraped = require('./routes/scraped.js');
+var saved = require('./routes/saved.js');
+var scraped = require('./routes/scraped.js');
 
 /* Init App */
 var app = express();
@@ -36,8 +36,8 @@ app.use(logger("dev"));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', home);
-// app.use('/', saved);
-// app.use('/', scraped);
+app.use('/', saved);
+app.use('/', scraped);
 
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
