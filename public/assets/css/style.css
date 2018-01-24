@@ -1,0 +1,97 @@
+body {
+	/*background-color: #f2f2f2;*/
+	background-image: url(../images/background.jpg);
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+} 
+
+.jumbotron h1 {
+	text-align: center;
+	color: #10100a;
+	font-family: 'Lobster', cursive;
+	font-style: italic;
+	font-size: 80px;
+}	
+
+.jumbotron {
+	background-image: url(../images/newspaper.jpg);
+
+}
+
+#logo {
+	float: right;
+}
+
+.bodyheading {
+	text-align: center;
+	font-size: 25px;
+	font-family: 'Lobster', cursive;
+	font-style: italic;
+}
+
+
+.panel-default > .panel-heading-custom {
+	background: #6288a5; 
+	color: #d9d9d9;
+}
+
+label {
+	font-family: 'Gloria Hallelujah', cursive;
+	font-size: 20px;
+}
+
+form {
+	text-align: left;
+}
+
+input {
+	width: 100%;
+}
+
+input#search {
+	width: 80px;
+}
+
+input#clearbtn {
+	width: 100px;
+}
+
+#clearbtn, #search{
+	padding: 5px;
+	background-color: #6288a5;
+	color: white;
+}
+
+#panelbody{
+	background-image: url(../images/article.jpg);
+	background-size: cover;
+}
+
+#display {
+	height: 100%;
+}
+
+.headline  {
+	font-family: "Times New Roman", Georgia, Serif;
+	margin-top: 80px;
+	width: 100%;
+	padding: 15px;
+	line-height: 30px;
+	color: #fff;
+	text-align: center;
+	background: #6288a5;
+}
+
+.author {
+ 	font-family: "Times New Roman", Georgia, Serif;
+ 	font-style: italic;
+ 	color: #fff;
+	text-align: center;
+	font-size: 15px;
+}
+
+#link {
+	color: #fff;
+	text-decoration: none;
+}
