@@ -16,6 +16,7 @@ var Article = require("./models/Article.js");
 var home = require('./routes/home.js');
 var saved = require('./routes/saved.js');
 var scraped = require('./routes/scraped.js');
+var deleteArticles = require('./routes/delete.js');
 
 /* Init App */
 var app = express();
@@ -51,6 +52,7 @@ db.once("open", function() {
 app.use('/', home);
 app.use('/', saved);
 app.use('/', scraped);
+app.use('/', deleteArticles);
 
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);

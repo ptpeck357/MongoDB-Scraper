@@ -8,7 +8,7 @@ var router = express.Router();
 var Note = require("../models/Note.js");
 var Article = require("../models/Article.js");
 
-router.get("/scrape", function(req, res){
+router.get("/scrape", function(req, res){    
 
  	request("https://www.nytimes.com/section/us?action=click&pgtype=Homepage&region=TopBar&module=HPMiniNav&contentCollection=U.S.&WT.nav=page", function(error, response, html) {
 
@@ -23,21 +23,22 @@ router.get("/scrape", function(req, res){
 	      	result.title = $(this).children("h2").text();
 	      	result.summary = $(this).children(".summary").text();
 	      	result.url = $("a.story-link").attr("href");
-	      	result.image = $("img").attr("src");
+	      	// result.image = $("img").attr("src");
 
 	      	var entry = new Article(result);
 
 		    entry.save(function(err, doc) {
 	        	if (err) {
 	        		console.log(err);
-       	 		} else {
-           			// res.redirect("/");
-	        	}
-
+       	 		} 
 	      	});
 
 	    });
+
+	    res.redirect("/");
+
   	});
+
 });
 
 module.exports = router;

@@ -22,26 +22,29 @@
                         Saved Articles
                     </a>
                 </li> 
-    
-                <span><form action="/scrape" method="get">
-                    <button type="submit" class="btn-success btn-sm navbar-btn">
-                    Scrape Articles
-                    </button>
-            </form></span>
+                
+                {{#if articles}}
+                    
+                    <span>
+                        <form action="/delete" method="get">
+                            <button type="submit" class="btn-danger btn-sm navbar-btn" id="scrape">
+                                Delete Articles
+                            </button>
+                        </form>
+                    </span>
+                
+                
+                {{else}}
 
-                {{!-- <div class="nav-item collapse" id="list">
-                    <a class="nav-link hvr-underline-from-center" href="#">
-                        US
-                    </a>
+                    <span>
+                        <form action="/scrape" method="get">
+                            <button type="submit" class="btn-success btn-sm navbar-btn" id="scrape">
+                            Scrape Articles
+                            </button>
+                        </form>
+                    </span>
 
-                    <a class="nav-link hvr-underline-from-center" href="#">
-                        World News
-                    </a>
-
-                    <a class="nav-link hvr-underline-from-center" href="">
-                        North America
-                    </a>
-                </div> --}}
+                {{/if}}
 
             </ul>
             

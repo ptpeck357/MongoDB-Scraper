@@ -13,10 +13,6 @@ html, body {
 	width: 100%;
 }
 
-#title {
-	color: #859a9c;
-}
-
 .jumbotron h1 {
 	text-align: center;
 	color: #10100a;
@@ -44,27 +40,23 @@ html, body {
 
 #panelbody{
 	background-image: url(../images/article.jpg);
-	background-size: cover;
-	height: 300px;
+	background-size: length;
+	height: 100%;
+	margin-bottom: 20px;
 }
 
-.headline  {
-	font-family: "Times New Roman", Georgia, Serif;
-	margin-top: 80px;
-	width: 100%;
-	padding: 15px;
-	line-height: 30px;
-	color: #fff;
-	text-align: center;
-	background: #6288a5;
+#save {
+	float: right;
+	color: white;
 }
 
-.author {
- 	font-family: "Times New Roman", Georgia, Serif;
- 	font-style: italic;
- 	color: #fff;
-	text-align: center;
-	font-size: 15px;
+#URL {
+	color: #d9ccc3;
+	font-size: 20px;
+}
+
+.card-header {
+	background-color: #6288a5;
 }
 
 .footer {

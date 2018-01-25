@@ -19,12 +19,11 @@ var ArticleSchema = new Schema({
   url: {
     type: String,
     required: true
-  },
-
-  image: {
-    type: String,
-    required: true
   }
+
+  // image: {
+  //   type: String
+  // }
 
   // note: {
   //   type: Schema.Types.ObjectId,
