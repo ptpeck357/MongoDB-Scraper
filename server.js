@@ -6,13 +6,11 @@ var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 
-// Set mongoose to leverage built in JavaScript ES6 Promises
-// mongoose.Promise = Promise;
-
 var PORT = process.env.PORT || 3000;
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
-/* Database */
-// var db = require('../models');
+var Note = require("./models/Note.js");
+var Article = require("./models/Article.js");
 
 /* Routes */
 var home = require('./routes/home.js');
@@ -34,6 +32,21 @@ app.use(logger("dev"));
 
 /* Set Static Folder */
 app.use(express.static(path.join(__dirname, 'public')));
+
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI);
+
+var db = mongoose.connection;
+
+// Show any mongoose errors
+db.on("error", function(error) {
+	console.log("Mongoose Error: ", error);
+});
+
+// Once logged in to the db through mongoose, log a success message
+db.once("open", function() {
+ 	console.log("Mongoose connection successful.");
+});
 
 app.use('/', home);
 app.use('/', saved);

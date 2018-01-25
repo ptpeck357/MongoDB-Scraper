@@ -2,18 +2,12 @@
     
     <div class="container">
 
-        {{!-- Brand Name And Logo --}}
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" id="title" href="/">
+            <img src="/assets/images/mongoicon.jpg" style="height: 30px; padding: 0px;">
             <strong>MongoDb Scraper</strong>
         </a>
 
-        {{!-- Navbar Toggler - Stays at right upper corner on small and extra small device --}}
-        <button class="navbar-toggler" type="button">
-            <span class="navbar-toggler-icon"></span>
-            Scrape Web
-        </button>
-
-        <div class="collapse navbar-collapse" id="primary-navigation">
+        <div>
             
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 
@@ -27,16 +21,36 @@
                     <a class="nav-link hvr-underline-from-center" href="/saved">
                         Saved Articles
                     </a>
-                </li>
+                </li> 
+    
+                <span><form action="/scrape" method="get">
+                    <button type="submit" class="btn-success btn-sm navbar-btn">
+                    Scrape Articles
+                    </button>
+            </form></span>
 
-                <li class="nav-item">
-                    <a class="nav-link hvr-underline-from-center" href="/signout">
-                        Scrape New Articles
+                {{!-- <div class="nav-item collapse" id="list">
+                    <a class="nav-link hvr-underline-from-center" href="#">
+                        US
                     </a>
-                </li>
+
+                    <a class="nav-link hvr-underline-from-center" href="#">
+                        World News
+                    </a>
+
+                    <a class="nav-link hvr-underline-from-center" href="">
+                        North America
+                    </a>
+                </div> --}}
 
             </ul>
             
         </div>
     </div> 
+
 </nav> 
+<br>
+
+
+
+

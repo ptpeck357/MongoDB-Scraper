@@ -11,15 +11,25 @@ var ArticleSchema = new Schema({
   },
 
   // link is a required string
-  link: {
+  summary: {
     type: String,
     required: true
   },
 
-  note: {
-    type: Schema.Types.ObjectId,
-    ref: "Note"
+  url: {
+    type: String,
+    required: true
+  },
+
+  image: {
+    type: String,
+    required: true
   }
+
+  // note: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "Note"
+  // }
 });
 
 var Article = mongoose.model("Article", ArticleSchema);

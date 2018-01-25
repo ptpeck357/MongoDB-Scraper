@@ -12,11 +12,21 @@
 
 	    <div class="panel-heading panel-heading-custom bodyheading">Top Articles</div>
 
-	    <div class="panel-body" id="panelbody">
-	    	<div id="display">
-	    	</div>
-	    </div>
-	  
+		    <div class="panel-body" id="panelbody">
+				<br>
+				<Br>
+
+				{{#each articles}}
+
+			    	<div class="card text-center">
+					      	<p>{{title}}</p>
+					      	<a href="{{url}}">{{url}}</a>
+			    			<p>{{summary}}</p>
+			    	</div>
+
+		    	{{/each}}
+
+	  		</div>
   	</div>
 
 </div>
