@@ -4,31 +4,32 @@ var Schema = mongoose.Schema;
 // Create article schema
 var ArticleSchema = new Schema({
 
-  // title is a required string
-  title: {
-    type: String,
-    required: true
-  },
+    title: {
+        type: String,
+        required: true,
+        unique : true,
+        dropDups: true
+    },
 
-  // link is a required string
-  summary: {
-    type: String,
-    required: true
-  },
+    summary: {
+        type: String,
+        required: true,
+        unique : true,
+        dropDups: true
+    },
 
-  url: {
-    type: String,
-    required: true
-  }
+    url: {
+        type: String,
+        required: true,
+        unique : true,
+        dropDups: true
+    },
 
-  // image: {
-  //   type: String
-  // }
+    notes: {
+        type: Schema.Types.ObjectId,
+        ref: "Note"
+    }
 
-  // note: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "Note"
-  // }
 });
 
 var Article = mongoose.model("Article", ArticleSchema);
