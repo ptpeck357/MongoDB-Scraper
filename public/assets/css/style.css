@@ -11,6 +11,7 @@ html, body {
 	border-radius: 9px;
 	position: fixed;
 	width: 100%;
+	z-index: 5;
 }
 
 .jumbotron h1 {
@@ -21,6 +22,10 @@ html, body {
 	font-size: 80px;
 }	
 
+#scrape {
+	margin-right: .5rem;
+}
+
 .jumbotron {
 	background-image: url(../images/newspaper.jpg);
 	margin-top: 50px;
@@ -28,9 +33,16 @@ html, body {
 
 .bodyheading {
 	text-align: center;
-	font-size: 25px;
+	font-size: 30px;
 	font-family: 'Lobster', cursive;
 	font-style: italic;
+	padding: 5px;
+}
+
+.card-header {
+	background-color: #6288a5;
+	border-radius: 2px;
+	font-size: 20px;
 }
 
 .panel-default > .panel-heading-custom {
@@ -42,12 +54,15 @@ html, body {
 	background-image: url(../images/article.jpg);
 	background-size: length;
 	height: 100%;
-	margin-bottom: 20px;
 }
 
-#save {
-	float: right;
-	color: white;
+#cardbody {
+	margin: 20px 0px;
+}
+
+.card-block {
+	background-color: lightgray;
+	border-radius: 9px;
 }
 
 #URL {
@@ -55,8 +70,16 @@ html, body {
 	font-size: 20px;
 }
 
-.card-header {
-	background-color: #6288a5;
+#summary {
+	font-family: 'Lora', serif;
+	margin: 0px 15px 0px;
+	padding-bottom: 20px;
+}
+
+#saveBtn {
+	color: white;
+	display: inline-block;
+	vertical-align: center;
 }
 
 .footer {

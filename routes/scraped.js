@@ -23,8 +23,7 @@ router.get("/scrape", function(req, res){
 	      	result.title = $(this).children("h2").text();
 	      	result.summary = $(this).children(".summary").text();
 	      	result.url = $("a.story-link").attr("href");
-	      	// result.image = $("img").attr("src");
-
+	      	result.saved = false;
 	      	var entry = new Article(result);
 
 		    entry.save(function(err, doc) {

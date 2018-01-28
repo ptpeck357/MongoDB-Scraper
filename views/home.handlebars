@@ -21,18 +21,19 @@
 
   	{{/unless}}
 	
-	<div class="panel-body" id="panelbody">
-					
+	<div class="panel-body panel-default" id="panelbody">
+		
+
 		{{#if articles}}
 
+		<div class="panel-heading panel-heading-custom bodyheading">Latest Articles</div>
 			{{#each articles}}
 
-		    	<div class="card card-inverse" style="background-color: #333; margin-bottom: 20px; margin-top: 20px;">
-		    		{{!-- <img class="card-img-left" src="{{image}}" alt="Card image cap" style="width: 150px;"> --}}
-				  	<div class="card-block" style="background-color: lightgray">
-				    	<a href="{{url}}" id="URL"><h3 class="card-header">{{title}}<span><a class="btn btn-success" id="save" >Save Article</a></span></h3></a>
+		    	<div class="col-md-12" id="cardbody">
+				  	<div class="card-block">
+				    	<a href="{{url}}" id="URL"><h3 class="card-header d-flex justify-content-start align-items-center">{{title}}</a><form class="ml-auto p-2" action="/saved/{{_id}}" method="GET"><button class="btn btn-success" type="submit" id="saveBtn">Save Article</button></form></h3>
 				    	<br>
-				    	<p class="card-text">{{summary}}</p> 
+				    	<p class="card-text" id="summary">{{summary}}</p> 
 				    	
 				  	</div>
 				</div>

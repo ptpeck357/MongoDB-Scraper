@@ -5,18 +5,25 @@ var router = express.Router();
 var Note = require("../models/Note.js");
 var Article = require("../models/Article.js");
 
-router.get("/delete", function(req, res){
+router.get("/delete/:id", function(req, res){
 
-	Article.remove({}, function(error, response) {
+	var id = req.params.id;
 
-    // Log any errors to the console
-    if (error) {
+	Article.remove(
+	{
+		_id: id
+	}, 
 
-      console.log(error);
+	function(error, response) {
 
-    } else {	    
-    		res.redirect("/");
- 		}
+	    // Log any errors to the console
+	    if (error) {
+
+	      console.log(error);
+
+	    } else {	    
+	    		res.redirect("/saved");
+	 		}
   	});
 
 });

@@ -9,7 +9,7 @@
 
         <div>
             
-            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0 align-items-center">
 
                 <li class="nav-item">
                     <a class="nav-link hvr-underline-from-center" href="/">
@@ -22,29 +22,19 @@
                         Saved Articles
                     </a>
                 </li> 
-                
-                {{#if articles}}
-                    
-                    <span>
-                        <form action="/delete" method="get">
-                            <button type="submit" class="btn-danger btn-sm navbar-btn" id="scrape">
-                                Delete Articles
-                            </button>
-                        </form>
-                    </span>
-                
-                
-                {{else}}
-
-                    <span>
-                        <form action="/scrape" method="get">
-                            <button type="submit" class="btn-success btn-sm navbar-btn" id="scrape">
-                            Scrape Articles
-                            </button>
-                        </form>
-                    </span>
-
-                {{/if}}
+                                    
+                <span>
+                    <form action="/scrape" method="get">
+                        <button type="submit" class="btn-success btn-sm navbar-btn" id="scrape">
+                        Scrape Articles
+                        </button>
+                    </form>
+                </span>
+                <span>
+                    <button type="button" class="btn-danger btn-sm navbar-btn" id="delete">
+                        Delete Articles
+                    </button>
+                </span>             
 
             </ul>
             
@@ -53,6 +43,7 @@
 
 </nav> 
 <br>
+
 
 
 
