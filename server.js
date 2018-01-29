@@ -32,8 +32,9 @@ app.use(logger("dev"));
 /* Set Static Folder */
 app.use(express.static(path.join(__dirname, 'public')));
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = "mongodb://<pt_peck357>:<some1is11>@ds133796.mlab.com:33796/heroku_kf93v3xg" || "mongodb://localhost/mongoHeadlines";
 mongoose.Promise = Promise;
+
 mongoose.connect(MONGODB_URI, function (err, db) {
   	if (err) {
     	console.log('Unable to connect to the mongoDB server. Error:', err);
