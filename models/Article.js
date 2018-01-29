@@ -9,6 +9,7 @@ var ArticleSchema = new Schema({
     type: String,
     trim: true,
     unique: true,
+    dropDups : false,
     required: true
   },
 

@@ -8,7 +8,7 @@ var Article = require("../models/Article.js");
 router.get("/delete/:id", function(req, res){
 
 	var id = req.params.id;
-
+	
 	Article.remove(
 	{
 		_id: id
@@ -24,6 +24,25 @@ router.get("/delete/:id", function(req, res){
 	    } else {	    
 	    		res.redirect("/saved");
 	 		}
+  	});
+
+});
+
+/*Deleting all articles and notes*/
+router.get("/delete", function(req, res){
+
+	var id = req.params.id;
+
+	Article.remove({}, function(error, response) {
+
+	    // Log any errors to the console
+	    if (error) {
+
+	      console.log(error);
+
+	    } else {	    
+	    	res.redirect("/");
+		}
   	});
 
 });

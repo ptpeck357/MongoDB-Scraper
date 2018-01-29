@@ -24,6 +24,7 @@ router.get("/scrape", function(req, res){
 	      	result.summary = $(this).children(".summary").text();
 	      	result.url = $("a.story-link").attr("href");
 	      	result.saved = false;
+	      	
 	      	var entry = new Article(result);
 
 		    entry.save(function(err, doc) {
@@ -34,7 +35,7 @@ router.get("/scrape", function(req, res){
 
 	    });
 
-	    res.redirect("/");
+	    res.json("count")
 
   	});
 

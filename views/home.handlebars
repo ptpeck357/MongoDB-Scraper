@@ -31,7 +31,7 @@
 
 		    	<div class="col-md-12" id="cardbody">
 				  	<div class="card-block">
-				    	<a href="{{url}}" id="URL"><h3 class="card-header d-flex justify-content-start align-items-center">{{title}}</a><form class="ml-auto p-2" action="/saved/{{_id}}" method="GET"><button class="btn btn-success" type="submit" id="saveBtn">Save Article</button></form></h3>
+				    	<a href="{{url}}" id="URL"><h3 class="card-header d-flex justify-content-start align-items-center">{{title}}</a><button class="btn btn-success ml-auto p-2 saveBtn" data-id={{_id}} type="button">Save Article</button></h3>
 				    	<br>
 				    	<p class="card-text" id="summary">{{summary}}</p> 
 				    	
@@ -44,3 +44,78 @@
 	</div>
 
 </div>
+
+{{!-- Modal to inform users that their articles was saved --}}
+<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+
+			 	<p id="modaltext">Your article was successfully saved!</p>
+				
+			</div>
+			<div class="modal-footer">
+			  	<button type="button" class="btn btn-success" data-dismiss="modal">Dismiss</button>
+			</div>			
+		</div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+{{!-- Modal to confirm deleting all the articles and notes --}}
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      	<div class="modal-content panel-warning">
+        	<div class="modal-header panel-heading">
+          		<h4 class="modal-title">Warning!</h4>
+          		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        	</div>
+	        <div class="modal-body">
+	        	{{#if articles}}
+
+	         	<p id="modaltext">Deleting all the articles will also delete all your notes. Are you sure?</p>
+				
+				{{else}}
+				<p id="modaltext">There are no articles to delete</p>
+
+	        	{{/if}}
+
+	        </div>
+
+        {{#if articles}}
+
+	        <div class="modal-footer">
+	          	<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+	          	<span><form action="/delete" method="GET">
+	          		<button type="submit" class="btn btn-danger">Delete Articles</button>
+	          	</form></span>
+	        </div>
+			
+			{{else}}
+			
+			<div class="modal-footer">
+	          	<button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+	        </div>
+
+        {{/if}}
+
+      	</div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+{{!-- Modal to inform users how many articles were returned --}}
+<div class="modal fade" id="returnamount" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+
+			 	<p id="modaltext"></p>
+				
+			</div>
+			<div class="modal-footer">
+			  	<button type="button" class="btn btn-success" data-dismiss="modal">Dismiss</button>
+			</div>			
+		</div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
