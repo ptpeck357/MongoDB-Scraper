@@ -6,9 +6,6 @@ var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 
-var PORT = process.env.PORT || 3000;
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-
 var Note = require("./models/Note.js");
 var Article = require("./models/Article.js");
 
@@ -35,6 +32,7 @@ app.use(logger("dev"));
 /* Set Static Folder */
 app.use(express.static(path.join(__dirname, 'public')));
 
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
 
@@ -55,6 +53,8 @@ app.use('/', saved);
 app.use('/', scraped);
 app.use('/', deleteArticles);
 app.use('/', note);
+
+var PORT = process.env.PORT || 3000;
 
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
