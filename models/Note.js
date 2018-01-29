@@ -4,14 +4,8 @@ var Schema = mongoose.Schema;
 // Create the Note schema
 var NoteSchema = new Schema({
 
-	title: {
+	note: {
 		type: String,
-		required: "Please put a title"
-	},
-
-	body: {
-		type: String,
-		required: "Please leave a note"
 	}
 });
 

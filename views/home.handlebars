@@ -13,9 +13,16 @@
 	  	<div class="panel panel-default">
 
 		    <div class="panel-heading panel-heading-custom bodyheading">Top Articles</div>
-			
 				<div class="panel-body" id="panelbody">
-			    	<br><Br><Br><Br><br><Br><Br><Br>
+					<br>
+			    	<div class="col-md-12">
+					  	<div class="card-block">
+					    	<p class="card-text noarticles">Oh no! There appears to be no articles!</p> 
+					  	</div>
+					  	<br><br>
+					  	<br><br>
+					  	<br><br>
+					</div>
 			    </div>
 	  	</div>
 
@@ -51,7 +58,7 @@
 		<div class="modal-content">
 			<div class="modal-body">
 
-			 	<p id="modaltext">Your article was successfully saved!</p>
+			 	<p class="modaltext">Your article was successfully saved!</p>
 				
 			</div>
 			<div class="modal-footer">
@@ -68,15 +75,14 @@
       	<div class="modal-content panel-warning">
         	<div class="modal-header panel-heading">
           		<h4 class="modal-title">Warning!</h4>
-          		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         	</div>
 	        <div class="modal-body">
 	        	{{#if articles}}
 
-	         	<p id="modaltext">Deleting all the articles will also delete all your notes. Are you sure?</p>
+	         	<p class="modaltext">Deleting all the articles will also delete all your notes. Are you sure?</p>
 				
 				{{else}}
-				<p id="modaltext">There are no articles to delete</p>
+				<p class="modaltext">There are no articles to delete</p>
 
 	        	{{/if}}
 
@@ -87,7 +93,7 @@
 	        <div class="modal-footer">
 	          	<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
 	          	<span><form action="/delete" method="GET">
-	          		<button type="submit" class="btn btn-danger">Delete Articles</button>
+	          		<button type="submit" class="btn btn-danger">Yes</button>
 	          	</form></span>
 	        </div>
 			

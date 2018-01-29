@@ -7,22 +7,19 @@ var Article = require("../models/Article.js");
 
 router.get('/', function(req, res) {
 
-	// Grab every doc in the Articles array
-	Article.find({}, function(error, articles) {
-		
-		// Log any errors
-		if (error) {
-			console.log(error);
-		} else {
+	Article.find().sort({"date": 1})
+  	.exec(function(error, articles) {
+    	if (error) {
+      		console.log(error);
+    	} else {
 
-			var data = {
+    		var data = {
 				articles: articles
 			};
 
-			res.render('home', data);
-
-		}
-	});
+      		res.render('home', data);
+    	}
+  	});
 });
 
 module.exports = router;

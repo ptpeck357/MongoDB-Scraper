@@ -76,6 +76,12 @@ html, body {
 	padding-bottom: 20px;
 }
 
+.noarticles{
+	text-align: center;
+	font-size: 25px;
+	padding: 20px;
+}
+
 .saveBtn {
 	color: white;
 	display: inline-block;
@@ -89,8 +95,23 @@ html, body {
     margin-top: 5px;
 }
 
-#modaltext{
+#notetitle {
+	font-size: 20px;
+	margin: 0px;
+	padding: 10px;
+}
+
+#deletenote {
+	float: right;
+}
+
+.modaltext{
 	font-family: 'Lora', serif;
 	text-align: center;
 	font-size: 20px;
+}
+
+.modalnote {
+	font-family: 'Lora', serif;
+	font-size: 15px;
 }

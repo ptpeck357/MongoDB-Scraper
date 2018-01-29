@@ -13,30 +13,36 @@ router.get("/scrape", function(req, res){
  	request("https://www.nytimes.com/section/us?action=click&pgtype=Homepage&region=TopBar&module=HPMiniNav&contentCollection=U.S.&WT.nav=page", function(error, response, html) {
 
 	    var $ = cheerio.load(html);
+	    
 
 	    $(".story-meta").each(function(i, element) {
 
-	      	// Save an empty result object
-	     	var result = {};
-
 	      	// Add the text and href of every link, and save them as properties of the result object
-	      	result.title = $(this).children("h2").text();
-	      	result.summary = $(this).children(".summary").text();
-	      	result.url = $("a.story-link").attr("href");
-	      	result.saved = false;
-	      	
-	      	var entry = new Article(result);
+	      	title = $(this).children("h2").text();
+	      	summary = $(this).children(".summary").text();
+	      	url = $("a.story-link").attr("href");
+	      	saved = false;
+	   		date = Date.now();
 
-		    entry.save(function(err, doc) {
-	        	if (err) {
-	        		console.log(err);
-       	 		} 
-	      	});
-
-	    });
-
-	    res.json("count")
-
+	     		Article.findOneAndUpdate({ 
+	     			title: title,
+	     			summary: summary,
+	     			url: url,
+	     			saved: saved,
+	     			date: date
+	     		},
+	     		Article({
+					title: title,
+					summary: summary,
+					url: url,
+					saved: saved,
+					date: date
+				}),
+				{	upsert: true, 
+					new: true, 
+					runValidators: true
+				});
+		});
   	});
 
 });
