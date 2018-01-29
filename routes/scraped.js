@@ -14,40 +14,46 @@ router.get("/scrape", function(req, res){
 
 	    var $ = cheerio.load(html);
 	    
+	    let counter = [];
 
-	    $(".story-meta").each(function(i, element) {
+	    $("#latest-panel article.story.theme-summary").each(function(i, element) {
 
 	      	// Add the text and href of every link, and save them as properties of the result object
-	      	title = $(this).children("h2").text();
-	      	summary = $(this).children(".summary").text();
-	      	url = $("a.story-link").attr("href");
-	      	saved = false;
-	   		date = Date.now();
+	      	var article = {
+	      		url: $(element).find('.story-body>.story-link').attr('href'),
+           		title: $(element).find('h2.headline').text().trim(),
+            	summary: $(element).find('p.summary').text().trim(),
+	      		saved: false,
+	   			date: Date.now()
+	   		}
 
-	     		Article.findOneAndUpdate({ 
-	     			title: title,
-	     			summary: summary,
-	     			url: url,
-	     			saved: saved,
-	     			date: date
-	     		},
-	     		Article({
-					title: title,
-					summary: summary,
-					url: url,
-					saved: saved,
-					date: date
-				}),
-				{	upsert: true, 
-					new: true, 
-					runValidators: true
-				}, function(err, data){
-					if (err) {
-						console.log(err)
-					}
-				});
+	   		Article.findOneAndUpdate({ 
+	 			title: article.title,
+	 			summary: article.summary,
+	 			url: article.url,
+	 			saved: article.saved,
+	 			date: article.date
+	 		},
+	 		Article({
+				title: article.title,
+				summary: article.summary,
+				url: article.url,
+				saved: article.saved,
+				date: article.date
+			}),
+			{	upsert: true, 
+				new: true, 
+				runValidators: true
+			}, function(err, data){
+				if (err) {
+					console.log(err)
+				}
+			});
+	     		
 		});
+
 		res.json("success");
+
   	});
 
 });
