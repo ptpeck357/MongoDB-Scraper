@@ -21,15 +21,15 @@ $(document).ready(function() {
 		    url: "/scrape",
 		    // On a successful call, clear the #results section
 		    success: function(response) {
-		    	// console.log(response)
+
 		    	location.reload();
-		    	if (response) {
-		    		$("#modaltext").append("articles were returned")
-		    		$("#returnamount").modal()
-		    	} else {
-		    		$("#modaltext").html("No new articles were found")
-		    		$("#returnamount").modal()
-		    	}
+		    	// if (response) {
+		    	// 	$("#modaltext").append("articles were returned")
+		    	// 	$("#returnamount").modal()
+		    	// } else {
+		    	// 	$("#modaltext").html("No new articles were found")
+		    	// 	$("#returnamount").modal()
+		    	// }
 		    	
 		    }
 		});

@@ -41,8 +41,13 @@ router.get("/scrape", function(req, res){
 				{	upsert: true, 
 					new: true, 
 					runValidators: true
+				}, function(err, data){
+					if (err) {
+						console.log(err)
+					}
 				});
 		});
+		res.json("success");
   	});
 
 });
