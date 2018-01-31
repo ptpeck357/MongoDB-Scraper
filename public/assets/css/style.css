@@ -115,3 +115,7 @@ html, body {
 	font-family: 'Lora', serif;
 	font-size: 15px;
 }
+
+#article-note-modal{
+	height: 100%;
+}
