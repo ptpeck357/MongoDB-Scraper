@@ -53,7 +53,8 @@ router.post('/save/note/:id', function(req, res) {
 
                     var data = {
                         note: newNote,
-                        ArticleId: ArticleId
+                        ArticleId: ArticleId,
+                        noteid: result._id
                     }
                     
                   res.json(data);
@@ -64,7 +65,24 @@ router.post('/save/note/:id', function(req, res) {
 });
 
 /*Delete note*/
-router.post('/delete/note', function(req, res) {
+router.get('/delete/:id', function(req, res) {
 
-})
+    var noteid = req.params.id;
+
+    Note.remove({_id: noteid}, function(err){
+
+        if (err) {
+
+            console.log(err);
+
+        } else {
+
+            res.json("Delete Success");
+
+        }
+
+    });
+
+});
+
 module.exports = router;

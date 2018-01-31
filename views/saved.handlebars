@@ -68,14 +68,9 @@
             <div class="modal-body">
 				
 
-			  	<div class="card-block">
-			  		{{!-- d-flex justify-content-start align-items-center --}}
-			    	<div id="notespot">
-			    		
-			    	</div>
+			  	<div class="justify-content-start align-items-center" id="notespot">
+			  		
 			  	</div>
-
-			  	<br>
 
                 <div class="form-group">
                     <textarea class="form-control" id="new-note" placeholder="New Note"></textarea>
@@ -98,18 +93,18 @@
 			</div>
 			<div class="modal-body">
 
-				<p id="modaltext">Deleting this article will also delete all your corresponding notes. Are you sure?</p>
+				<p id="modaltext">Unsaving this article won't affect its corresponding notes.</p>
 
 			</div>
 
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Nevermind</button>
 				<span>
 
 					{{#each articles}}
 						<form  action="/unsave/{{_id}}"  method="GET">
 					{{/each}}
-						<button type="submit" class="btn btn-danger">Yes</button>
+						<button type="submit" class="btn btn-danger">Ok</button>
 					</form>
 				</span>
 					
@@ -133,6 +128,7 @@
 				<p class="modaltext">Deleting all the articles will also delete all your notes. Are you sure?</p>
 
 				{{else}}
+
 				<p class="modaltext">There are no articles to delete</p>
 
 				{{/if}}

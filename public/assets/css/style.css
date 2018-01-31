@@ -97,12 +97,25 @@ html, body {
 
 #notetitle {
 	font-size: 20px;
-	margin: 0px;
+	margin-bottom: 10px;
 	padding: 10px;
+}
+
+#modalnote {
+	font-size: 20px;
+	margin-bottom: 10px;
+	padding: 10px;
+	background-color: lightgray;
+	border-radius: 9px;
+	display: inline-block;
+	vertical-align: center;
+
 }
 
 #deletenote {
 	float: right;
+	display: inline-block;
+	vertical-align: center;
 }
 
 .modaltext{
