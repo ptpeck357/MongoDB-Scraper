@@ -109,7 +109,6 @@ html, body {
 	border-radius: 9px;
 	display: inline-block;
 	vertical-align: center;
-
 }
 
 #deletenote {
@@ -132,3 +131,4 @@ html, body {
 #article-note-modal{
 	height: 100%;
 }
+

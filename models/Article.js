@@ -9,29 +9,22 @@ var ArticleSchema = new Schema({
         type: String,
         trim: true,
         unique: true,
-        dropDups : false,
         required: true
     },
 
     summary: {
         type: String,
-        trim: true,
-        required: true
+        trim: true
     },
 
     url: {
         type: String,
-        trim: true,
-        required: true
+        trim: true
     },
 
     saved: {
-        type: Boolean
-    },
-
-    date: {
-        type: Date
-    //     default: Date.now
+        type: Boolean,
+        default: false
     },
 
     note: [

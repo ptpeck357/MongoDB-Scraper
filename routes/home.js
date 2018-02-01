@@ -7,17 +7,18 @@ var Article = require("../models/Article.js");
 
 router.get('/', function(req, res) {
 
-	Article.find().sort({"date": 1})
+	Article.find().sort({createdAt: 1})
   	.exec(function(error, articles) {
     	if (error) {
-      		console.log(error);
+      		console.log(error); 
     	} else {
 
-    		var data = {
+    	var data = {
 				articles: articles
 			};
 
       		res.render('home', data);
+          
     	}
   	});
 });
