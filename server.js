@@ -1,13 +1,9 @@
 var express = require('express');
 var path = require('path');
-var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
-
-var Note = require("./models/Note.js");
-var Article = require("./models/Article.js");
 
 /* Routes */
 var home = require('./routes/home.js');
@@ -32,14 +28,14 @@ app.use(logger("dev"));
 /* Set Static Folder */
 app.use(express.static(path.join(__dirname, 'public')));
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/mongoHeadlines";
 mongoose.Promise = Promise;
 
 mongoose.connect(MONGODB_URI, function (err, db) {
-  	if (err) {
-    	console.log('Unable to connect to the mongoDB server. Error:', err);
-  	} else {
-    	console.log('Connection established to', MONGODB_URI);
+	if (err) {
+		console.log('Unable to connect to the mongoDB server. Error:', err);
+	} else {
+		console.log('Connection established to', MONGODB_URI);
 	}
 });
 

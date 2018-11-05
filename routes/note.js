@@ -8,7 +8,7 @@ var Article = require("../models/Article.js");
 /*Get notes for this article*/
 router.get('/note/:id', function(req, res) {
 
-    var ArticleId = req.params.id;   
+    var ArticleId = req.params.id;
 
 	Article.findOne({"_id": req.params.id })
   	.populate("note")
@@ -21,14 +21,14 @@ router.get('/note/:id', function(req, res) {
                 ArticleId: ArticleId
             }
             // if (note) {
-                res.json(data) 
-            // } 	       
+                res.json(data)
+            // }
     	}
   	});
 
 });
 
-/*Save a new note*/  
+/*Save a new note*/
 router.post('/save/note/:id', function(req, res) {
 
   var ArticleId = req.params.id;
@@ -56,7 +56,7 @@ router.post('/save/note/:id', function(req, res) {
                         ArticleId: ArticleId,
                         noteid: result._id
                     }
-                    
+
                   res.json(data);
                 }
             });

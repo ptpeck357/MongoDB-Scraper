@@ -4,7 +4,7 @@ html, body {
     background-attachment: fixed;
     background-size: cover;
     height: 100%;
-} 
+}
 
 .navbar {
 	background-color: #2C3539;
@@ -20,7 +20,7 @@ html, body {
 	font-family: 'Lobster', cursive;
 	font-style: italic;
 	font-size: 80px;
-}	
+}
 
 #scrape {
 	margin-right: .5rem;
@@ -46,7 +46,7 @@ html, body {
 }
 
 .panel-default > .panel-heading-custom {
-	background: #6288a5; 
+	background: #6288a5;
 	color: #d9d9d9;
 }
 

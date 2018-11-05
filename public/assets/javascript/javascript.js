@@ -4,7 +4,7 @@ $(document).ready(function() {
     $("#delete").click(function(){
 
     	$("#myModal").modal('show');
-    	
+
     });
 
     $(".deleteone").click(function(){
@@ -16,22 +16,22 @@ $(document).ready(function() {
     /*Button function to scrape*/
     $("#scrape").click(function(e){
 
-    	e.preventDefault();	
+    	e.preventDefault();
 
     	$.ajax({
 		    type: "GET",
 		    url: "/scrape",
 		    success: function(response) {
-		    	
+
 		    	location.reload();
-		    }		
-		});
+		    }
+			});
     });
 
     /*Saving a specific article*/
     $(".saveBtn").click(function(e){
 
-    	var selected = $(this);	
+    	var selected = $(this);
 
     	$.ajax({
 		    type: "GET",
@@ -52,26 +52,25 @@ $(document).ready(function() {
     	$.ajax({
 		    type: "GET",
 		    url: "/note/" + selected.attr("data-id")
-		}) 
+		})
 		.done(function(data) {
-			
 		    $("#notetitle").html("Note for Article " + selected.attr("data-id"))
-		    
+
 		    if (!data.article.note) {
-		    	$("#notespot").html("<p class='card-text col-md-12' id='modalnote'>" + "No Notes Yet" + 
+		    	$("#notespot").html("<p class='card-text col-md-12' id='modalnote'>" + "No Notes Yet" +
 		    	"</p>")
 		    }
 
 		    for (var i = 0; i < data.article.note.length; i++) {
 
 				/*Appending the notes to the notespot Id*/
-		    	$("#notespot").append("<p class='card-text col-md-12' id='modalnote'>" + data.article.note[i].note + 
+		    	$("#notespot").append("<p class='card-text col-md-12' id='modalnote'>" + data.article.note[i].note +
 		    	"<span><button type='button' class='btn btn-danger' data-id='"+data.article.note[i]._id+
 		    	"' id='deletenote'>X</button></span></p>")
 		    }
-		    	
+
 			$("#article-note-modal").modal();
-		    $(".savenote").attr("data-id", data.ArticleId);			
+		    $(".savenote").attr("data-id", data.ArticleId);
 
 		});
     });
@@ -96,25 +95,25 @@ $(document).ready(function() {
 			}).done(function(data) {
 
 				/*Appending the notes to the notespot Id*/
-		    	$("#notespot").append("<p class='card-text col-md-12' id='modalnote'>" + data.note.note + 
+		    	$("#notespot").append("<p class='card-text col-md-12' id='modalnote'>" + data.note.note +
 		    	"<span><button type='button' class='btn btn-danger' data-id='"+data.note._id+
 		    	"' id='deletenote'>X</button></span></p>");
-		    	
+
 			    $(".savenote").attr("data-id", ArticleId);
 				$("#article-note-modal").modal();
 				$("#new-note").val("");
 
 			});
-	    }; 
+	    };
     });
 
     $(document).on("click", "#deletenote", function(){
-    	
+
     	$(this).parent().parent().remove();
 
     	var selected = $(this);
 
-    	$.ajax({	
+    	$.ajax({
 		    type: "GET",
 		    url: "/delete/" + selected.attr("data-id")
 		});
