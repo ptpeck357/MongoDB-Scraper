@@ -1,71 +1,70 @@
-var path = require("path");
-var express = require("express");
-var router = express.Router();
+let path = require("path");
+let express = require("express");
+let router = express.Router();
 
-var Note = require("../models/Note.js");
-var Article = require("../models/Article.js");
+let Note = require("../models/Note.js");
+let Article = require("../models/Article.js");
 
 /*Get notes for this article*/
-router.get('/note/:id', function(req, res) {
+router.get('/note/:id', (req, res) => {
 
-    var ArticleId = req.params.id;
+  let ArticleId = req.params.id;
 
 	Article.findOne({"_id": req.params.id })
   	.populate("note")
-  	.exec(function(error, article) {
+  	.exec((error, article) => {
     	if (error) {
       		console.log(error);
     	} else {
-            var data = {
-                article: article,
-                ArticleId: ArticleId
-            }
-            // if (note) {
-                res.json(data)
-            // }
+        let data = {
+          article: article,
+          ArticleId: ArticleId
+        }
+        // if (note) {
+          res.json(data)
+        // }
     	}
   	});
 
 });
 
 /*Save a new note*/
-router.post('/save/note/:id', function(req, res) {
+router.post('/save/note/:id', (req, res) => {
 
-  var ArticleId = req.params.id;
+  let ArticleId = req.params.id;
 
 	// Create a new note and pass the req.body to the entry
- 	var newNote = new Note(req.body);
+ 	let newNote = new Note(req.body);
 
  	// console.log(req.body)
-  	newNote.save(function(error, result) {
+  	newNote.save((error, result) => {
     	if (error) {
       		console.log(error);
     	} else {
 
-            // Use the article id to find and update it's note
-            Article.findOneAndUpdate({_id: ArticleId}, { $push: { note: result._id } }, { new: true })
-            // Execute the above query
-            .exec(function(err, note) {
-                // Log any errors
-                if (err) {
-                  console.log(err);
-                } else {
+        // Use the article id to find and update it's note
+        Article.findOneAndUpdate({_id: ArticleId}, { $push: { note: result._id } }, { new: true })
+        // Execute the above query
+        .exec((err, note) => {
+          // Log any errors
+          if (err) {
+            console.log(err);
+          } else {
 
-                    var data = {
-                        note: newNote,
-                        ArticleId: ArticleId,
-                        noteid: result._id
-                    }
-
-                  res.json(data);
-                }
-            });
-        }
+            let data = {
+              note: newNote,
+              ArticleId: ArticleId,
+              noteid: result._id
+            }
+            res.json(data);
+          }
+        });
+      }
     });
 });
 
 /*Delete note*/
-router.get('/delete/:id', function(req, res) {
+router.get('/delete/:id', (req, res) => {
 
     var noteid = req.params.id;
 

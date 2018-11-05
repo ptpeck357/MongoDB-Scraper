@@ -54,12 +54,12 @@ $(document).ready(function() {
 		    url: "/note/" + selected.attr("data-id")
 		})
 		.done(function(data) {
-		    $("#notetitle").html("Note for Article " + selected.attr("data-id"))
+				$("#notetitle").html("Notes for " + '"' + data.article.title + '"');
 
 		    if (!data.article.note) {
 		    	$("#notespot").html("<p class='card-text col-md-12' id='modalnote'>" + "No Notes Yet" +
-		    	"</p>")
-		    }
+		    	"</p>");
+		    };
 
 		    for (var i = 0; i < data.article.note.length; i++) {
 

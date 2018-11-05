@@ -3,11 +3,11 @@
 	<div class="jumbotron">
 
 		<h1>The New York Times</h1>
-		
+
 	</div>
 
 	<br>
-	
+
 	{{#unless articles}}
 
 	  	<div class="panel panel-default">
@@ -17,7 +17,7 @@
 					<br>
 			    	<div class="col-md-12">
 					  	<div class="card-block">
-					    	<p class="card-text noarticles">Oh no! There appears to be no articles!</p> 
+					    	<p class="card-text noarticles">Oh no! There appears to be no articles!</p>
 					  	</div>
 					  	<br><br>
 					  	<br><br>
@@ -27,9 +27,9 @@
 	  	</div>
 
   	{{/unless}}
-	
+
 	<div class="panel-body panel-default" id="panelbody">
-		
+
 
 		{{#if articles}}
 
@@ -40,8 +40,8 @@
 				  	<div class="card-block">
 				    	<a href="{{url}}" target="_blank" id="URL"><h3 class="card-header d-flex justify-content-start align-items-center">{{title}}</a><button class="btn btn-success ml-auto p-2 saveBtn" data-id={{_id}} type="button">Save Article</button></h3>
 				    	<br>
-				    	<p class="card-text" id="summary">{{summary}}</p> 
-				    	
+				    	<p class="card-text" id="summary">{{summary}}</p>
+
 				  	</div>
 				</div>
 
@@ -59,11 +59,11 @@
 			<div class="modal-body">
 
 			 	<p class="modaltext">Your article was successfully saved!</p>
-				
+
 			</div>
 			<div class="modal-footer">
 			  	<button type="button" class="btn btn-success" data-dismiss="modal">Dismiss</button>
-			</div>			
+			</div>
 		</div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
@@ -80,7 +80,7 @@
 	        	{{#if articles}}
 
 	         	<p class="modaltext">Deleting all the articles will also delete all your notes. Are you sure?</p>
-				
+
 				{{else}}
 				<p class="modaltext">There are no articles to delete</p>
 
@@ -96,9 +96,9 @@
 	          		<button type="submit" class="btn btn-danger">Yes</button>
 	          	</form></span>
 	        </div>
-			
+
 			{{else}}
-			
+
 			<div class="modal-footer">
 	          	<button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
 	        </div>
@@ -117,11 +117,11 @@
 			<div class="modal-body">
 
 			 	<p class="modaltext"></p>
-				
+
 			</div>
 			<div class="modal-footer">
 			  	<button type="button" class="btn btn-success" data-dismiss="modal">Dismiss</button>
-			</div>			
+			</div>
 		</div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
