@@ -14,14 +14,14 @@ router.get("/scrape", (req, res) => {
 
 	    let $ = cheerio.load(html);
 
-	    $("#stream-panel > .css-4ahz2b > ol > li").each((i, element) => {
+	    $("#stream-panel > .css-13mho3u > ol > li").each((i, element) => {
 
 				// Add the text and href of every link, and save them as properties of the result object
 				let newArticle = new Article({
 					url: "https://www.nytimes.com" + $(element).find('.css-4jyr1y > a').attr('href'),
 					title: $(element).find('h2').text().trim(),
 					summary: $(element).find('div.css-4jyr1y > a > p').text().trim()
-				})
+				});
 
 	   		Article.create(newArticle, (error, doc) => {
 					if (error) {

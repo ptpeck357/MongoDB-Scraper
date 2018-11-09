@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
 	Article.find().sort({createdAt: 1})
   	.exec(function(error, articles) {
     	if (error) {
-      		console.log(error); 
+      		console.log(error);
     	} else {
 
     	var data = {
@@ -18,7 +18,7 @@ router.get('/', function(req, res) {
 			};
 
       		res.render('home', data);
-          
+
     	}
   	});
 });
